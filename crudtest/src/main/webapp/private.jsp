@@ -8,6 +8,11 @@
 
 	String memberId = (String)(session.getAttribute("loginId"));
 %>
+<!-- Latest compiled and minified CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,9 +20,15 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%=memberId%>님 반갑습니다.
-	<a href="<%=request.getContextPath()%>/logoutAction.jsp">로그아웃</a>
-	<br>
-	<a href="<%=request.getContextPath()%>/memberOne.jsp">회원정보</a>
+	<div class="container">
+		<h1><%=memberId%>님 반갑습니다.</h1>
+		<br><br>
+		<a href="<%=request.getContextPath()%>/memberOne.jsp"
+		class="btn btn-info">회원정보</a>
+		&nbsp;&nbsp;
+		<a href="<%=request.getContextPath()%>/logoutAction.jsp"
+		class="btn btn-danger">로그아웃</a>
+		<br>
+	</div>
 </body>
 </html>

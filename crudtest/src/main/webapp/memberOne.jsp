@@ -3,6 +3,12 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
 <%@ page import="vo.*" %>
+<!-- Latest compiled and minified CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
 <%
 	if(session.getAttribute("loginId") == null) { // 본인 세션에 loginId를 만든적이 없다 -> 로그인 없다
 		response.sendRedirect(request.getContextPath()+"/loginForm.jsp");
@@ -48,29 +54,38 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<table border="1">
-	<tr>
-		<td>아이디</td>
-		<td><%=memberId%></td>
-	</tr>
-	<tr>
-		<td>이름</td>
-		<td><%=memberName%></td>
-	</tr>
-	<tr>
-		<td>업데이트</td>
-		<td><%=updateDate%></td>
-	</tr>
-	<tr>
-		<td>계정생성일</td>
-		<td><%=createDate%></td>
-	</tr>
-	
-	</table>
-	<!-- 변경전 / 변경후 비밀번호 입력 -->
-	<a href="<%=request.getContextPath()%>/updateMemberPwForm.jsp">비밀번호수정</a>
-	<br>
-	<!-- 비밀번호 입력 -->
-	<a href="<%=request.getContextPath()%>/deleteMemberForm.jsp">회원탈퇴</a>
+	<div class="container">
+		<table class="table table-bordered table-hover">
+		<tr>
+			<td>아이디</td>
+			<td><%=memberId%></td>
+		</tr>
+		<tr>
+			<td>이름</td>
+			<td><%=memberName%></td>
+		</tr>
+		<tr>
+			<td>업데이트</td>
+			<td><%=updateDate%></td>
+		</tr>
+		<tr>
+			<td>계정생성일</td>
+			<td><%=createDate%></td>
+		</tr>
+		
+		</table>
+		<!-- 변경전 / 변경후 비밀번호 입력 -->
+		<a href="<%=request.getContextPath()%>/updateMemberPwForm.jsp" 
+		class="btn btn-success">비밀번호수정</a>
+		<br>
+		<!-- 비밀번호 입력 -->
+		<a href="<%=request.getContextPath()%>/deleteMemberForm.jsp"
+		class="btn btn-danger">회원탈퇴</a>
+		<br><br>
+		<a href="<%=request.getContextPath()%>/loginForm.jsp"
+		class="btn btn-primary">HOME</a>
+		
+		
+	</div>
 </body>
 </html>
